@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calender</title>
+    <style>
+
+        
+        body {
+            margin-top: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            background-color: rgb(60, 76, 28);
+            box-sizing: border-box;
+        }
+
+        .calendar {
+            background-color: rgb(87, 196, 215);
+            width: 380px;
+            box-shadow: 0 5px 10px 0px black;
+            text-align: center;
+            border-radius: 10px;
+        
+        }
+
+        .month {
+            background-color: green;
+            color: white;
+            padding: 10px;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .day {
+            font-size: 20px;
+            color: black;
+        }
+
+        .date {
+            font-size: 70px;
+            font-weight: bold;
+        }
+
+        .year {
+            margin: 20px;
+            font-size: 20px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calendar">
+        <p class="month"></p>
+        <p class="day" ></p>
+        <p class="date"></p>
+        <p class="year"></p>
+    </div>
+
+    <script>
+        const month = document.querySelector(".month");
+        const day = document.querySelector(".day");
+        const date = document.querySelector(".date");
+        const year = document.querySelector(".year");
+        const currentDate = new Date();
+        const options = { 
+            weekday: "long",
+             month: "long", 
+             day: "numeric",
+              year: "numeric" 
+            }
+        month.textContent = currentDate.toLocaleDateString("en-US", { month: "long" });
+        day.textContent = currentDate.toLocaleDateString("en-US", { weekday: "long" });
+        date.textContent = currentDate.toLocaleDateString("en-US", { day: "numeric" });
+        year.textContent = currentDate.toLocaleDateString("en-US", { year: "numeric" });
+    </script>
+</body>
+</html>
